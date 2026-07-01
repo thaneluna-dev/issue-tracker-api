@@ -1,20 +1,8 @@
 from fastapi import FastAPI
+from app.routes.issues import router as issues_router
 
 app = FastAPI(
     title="Issue Tracker API",
     version="1.0.0")
 
-items = []
-@app.get("/")
-def root():
-    return {"Hello": "World"}
-
-@app.post("/items")
-def create_item(item: str):
-    items.append(item)
-    return items
-
-@app.get("/items/{item_id}")
-def get_item(item_id: int):
-    item = items[item_id]
-    return item
+app.include_router(issues_router)
