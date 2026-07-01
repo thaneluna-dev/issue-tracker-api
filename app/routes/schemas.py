@@ -14,6 +14,7 @@ class issue_priority(str, Enum):
 
 # Creates a new issue with required fields
 class create_issues(BaseModel):
+    
     title: str = Field(min_length=2, max_length=100, example="Issue Title")
     description: Optional[str] = Field(None, max_length=100, example="Issue Description")
     priority: issue_priority = issue_priority.medium
@@ -26,8 +27,10 @@ class update_issues(BaseModel):
     status: Optional[issue_status] = None
 
 class user_response(BaseModel):
-    id: str
+    id: int
     title: str
     description: str
     priority: issue_priority
     status: issue_status
+    class Config:
+        from_attributes = True

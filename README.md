@@ -36,8 +36,8 @@ A lightweight and scalable **FastAPI**-based REST API for managing issues, bugs,
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/issues-tracker-fastapi.git
-cd issues-tracker-fastapi
+git clone https://github.com/<your-username>/issue-tracker-api.git
+cd issue-tracker-api
 ```
 
 ### Create a Virtual Environment
