@@ -20,3 +20,17 @@ async def create_issue(issue: create_issues, db:Session=Depends(get_db)):
     db.commit()
     db.refresh(new_issue)
     return new_issue
+
+# Update method for issues
+@router.put("/updateissues/{issue_id}", response_model=user_response)
+async def update_issue(issue_id: int, updated_issue: create_issues, db: Session = Depends(get_db)):
+    issue = db.query(Issues).filter(Issues.id == issue_id).first()
+    if not issue:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Issue not found")
+    
+    for key, value in updated_issue.dict().items():
+        setattr(issue, key, value)
+    
+    db.commit()
+    db.refresh(issue)
+    return issue
