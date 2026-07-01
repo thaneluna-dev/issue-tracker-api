@@ -1,5 +1,0 @@
-id
-username
-email
-hashed_password
-created_at

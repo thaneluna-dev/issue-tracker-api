@@ -25,7 +25,7 @@ class update_issues(BaseModel):
     priority: Optional[issue_priority] = None
     status: Optional[issue_status] = None
 
-class issue_out(BaseModel):
+class user_response(BaseModel):
     id: str
     title: str
     description: str
